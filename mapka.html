@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="utf-8">
+		<title>Mapa - wskazówki dojazdu - Specjalistyczny Gabinet Psychiatryczny - lek. med. spec. psychiatra Maciej Kąkolewski - Poznań Rataje</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Specjalistyczny gabinet psychiatryczny - lek. med. psych. Maciej Kąkolewski. ">
+		<meta name="author" content="Maciej Kąkolewski">
+
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+		<style type="text/css">
+      #map_canvas { height: 400px; }
+    </style>
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+			<script src="js/html5shiv.js"></script>
+		<![endif]-->
+
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDAP6wxsX_wFWbwLjdymGSL5-w9C7A6-6g&sensor=false"></script>
+    <script>
+			var map;
+			function initialize() {
+				mainLocatation = new google.maps.LatLng(52.392573, 16.983769);
+
+				var mainInfoWindow = new google.maps.InfoWindow({
+					content: document.getElementById('mainInfoWindowContent')
+				});
+
+				var mapOptions = {
+					zoom: 16,
+					center: mainLocatation,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+
+				map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+				mainMarker = new google.maps.Marker({
+					position: mainLocatation,
+					map: map
+				});
+				
+				var transitLayer = new google.maps.TransitLayer();
+				transitLayer.setMap(map);
+				
+				google.maps.event.addListener(mainMarker, 'click', function() {
+					mainInfoWindow.open(map, mainMarker);
+				});
+			}
+
+			google.maps.event.addDomListener(window, 'load', initialize);
+    </script>		
+	</head>
+	<body>
+		<div class="container">
+			<h1>Specjalistyczny Gabinet Psychiatryczny</h1>
+			<h4>Mapa - wskazówki dojazdu - lek. med. spec. psychiatra Maciej Kąkolewski</h4>
+
+			<p>
+				<a class="btn btn-info" href="http://poznan.jakdojade.pl?tn=Psychiatra+Maciej+Kąkolewski&tc=52.392573:16.983769&cid=1">
+					Wskazówki dojazdu komunikacją miejską &raquo;</a>
+				<a class="btn btn-info" href="index.html">Powrót do strony głównej gabinetu &raquo;</a>
+			</p>
+
+			<div id="map_canvas"></div>
+
+			<hr>
+
+			<footer>				
+					<time datetime="2015-03-03" class="published updated">
+						&copy; Maciej Kąkolewski, ostatnia aktualizacja 3 marca 2015
+					</time>
+			</footer>
+		</div> 
+		<div style="display: none">
+			<div id="mainInfoWindowContent" >
+				<p>os. Rusa 13, domofon nr 200 <br />61-245 Poznań</p>
+				<h4>Rejestracja</h4>
+				<h5>Godziny przyjęć do gabinetu</h5>
+				<ul>
+					<li>Wtorek od 10 do 15 oraz od 17 do 20</li>
+					<li>Piątek od 9 do 14</li>
+                                        <li>Terminy urlopów: 03-12.07, 01-16.08.2015r.</li>
+						
+				</ul>
+				<h5>Kontakt telefoniczny</h5>
+				<ul>
+<li>+48 502 173 658 (telefon komórkowy - jeżeli nie będę mógł odebrać - oddzwonię).</li>
+<li>W weekendy proszę kontaktować się przez SMS - w miarę możliwości oddzwonię. </li>
+<li>W sprawach nagłych proponuję kontakt z Izbą Przyjęć kliniki psychiatrii na ul. Szpitalnej.</li>
+
+				</ul>				
+			</div>
+		</div>
+		<script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+			var pageTracker = _gat._getTracker("UA-2979924-2");
+			pageTracker._initData();
+			pageTracker._trackPageview();
+		</script>		
+	</body>
+</html>
